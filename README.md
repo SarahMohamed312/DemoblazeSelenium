@@ -14,7 +14,6 @@ This project automates testing processes on the Demoblaze website using Selenium
 
 ## Technologies Used
 <a href="https://selenium.dev" rel="nofollow"><img src="https://camo.githubusercontent.com/c14bdde117aab22a44a4a4f23e66844c855076e8beaf2e32f568ff53dce2450f/68747470733a2f2f73656c656e69756d2e6465762f696d616765732f73656c656e69756d5f6c6f676f5f7371756172655f677265656e2e706e67" width="40" height="40" alt="Selenium" data-canonical-src="https://selenium.dev/images/selenium_logo_square_green.png" style="max-width: 100%;"></a>
-<img src="https://private-user-images.githubusercontent.com/122634626/306417621-86a31183-1950-4cf4-bbbe-c1c1d6dc2567.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjc1MjE3MzIsIm5iZiI6MTcyNzUyMTQzMiwicGF0aCI6Ii8xMjI2MzQ2MjYvMzA2NDE3NjIxLTg2YTMxMTgzLTE5NTAtNGNmNC1iYmJlLWMxYzFkNmRjMjU2Ny5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwOTI4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDkyOFQxMTAzNTJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kNDA4NmUzMDQzM2VjMmI2N2U0ODZjZmRlNDQ0NGRmZjAzNzdjNmZjMjJhYTRlMDE2ZGU3YzBiZmJlZDZkODIzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.jeXQs4WDbNpq3Tnwz83AP_FlkbBxATXJa-r_0fdwa1w" width="40" height="40" alt="TestNG" secured-asset-link="" style="max-width: 100%;">
 - Selenium WebDriver  
 - Java
 - TestNG
