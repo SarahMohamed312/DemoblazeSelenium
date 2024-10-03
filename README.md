@@ -3,6 +3,7 @@
 </div>
 
 ![DemoBlazeWebsite](https://github.com/user-attachments/assets/4aedf6f2-7ede-45e9-9ad1-762681171fc4)
+![SeleniumE2E](https://github.com/user-attachments/assets/1acef93c-903d-4f21-a846-c5b0b4429d7b)
 
 ## Overview
 This project automates testing processes on the Demoblaze website using Selenium WebDriver, TestNG, and Java. The aim is to validate the functionality of various user workflows such as user login, product selection, adding products to the cart, and completing a purchase.
