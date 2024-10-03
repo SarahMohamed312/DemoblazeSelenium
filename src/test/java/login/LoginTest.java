@@ -18,7 +18,7 @@ import java.time.Duration;
 
 public class LoginTest extends BaseTest {
     @Test
-    protected void LoginWithEmptyUsernameAndEmptyPassword() {
+    protected void loginWithEmptyUsernameAndEmptyPassword() {
         driver.findElement(By.id("login2")).click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginToDemoblaze("", "");
@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    protected void LoginWithCorrectUsernameAndEmptyPassword() {
+    protected void loginWithCorrectUsernameAndEmptyPassword() {
         driver.findElement(By.id("login2")).click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginToDemoblaze("sarahmohamed", "");
@@ -40,7 +40,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    protected void LoginWithEmptyUsernameAndCorrectPassword() {
+    protected void loginWithEmptyUsernameAndCorrectPassword() {
         driver.findElement(By.id("login2")).click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginToDemoblaze("", "312");
@@ -52,7 +52,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    protected void ShouldBeAbleToLoginWithCorrectUsernameAndPassword() {
+    protected void shouldBeAbleToLoginWithCorrectUsernameAndPassword() {
         driver.findElement(By.id("login2")).click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginToDemoblaze("sarahmohamed", "312");

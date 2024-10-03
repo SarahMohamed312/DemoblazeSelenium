@@ -18,7 +18,7 @@ public class E2E extends BaseTest {
 
 
     @Test
-    public void BeAbleToSignUpWithNewUsernameAndPassword() {
+    public void shouldBeAbleToSignUpWithNewUsernameAndPassword() {
         driver.findElement(By.id("signin2")).click();
         SignupPage signupPage = new SignupPage(driver);
         signupPage.signup("newitiuser102024", "123456789"); // New username
@@ -30,7 +30,7 @@ public class E2E extends BaseTest {
         }
 
     @Test(priority = 1)
-    protected void ShouldBeAbleToLoginWithCorrectUsernameAndPassword() {
+    protected void shouldBeAbleToLoginWithCorrectUsernameAndPassword() {
         driver.findElement(By.id("login2")).click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginToDemoblaze("newitiuser102024", "123456789");
@@ -39,7 +39,7 @@ public class E2E extends BaseTest {
         Assert.assertTrue(navbarElement.getText().contains("Welcome"));
     }
     @Test(priority = 2)
-    public void AddProductstoCart() {
+    public void addProductstoCart() {
         //add the first product
         var product1Page = homePage.clickSamsungGalaxyS6Product();
         product1Page.clickAddToCart();
@@ -62,7 +62,7 @@ public class E2E extends BaseTest {
 
         //Fill in Purchase Modal
         var purchaseForm = cartPage.clickPlaceOrder();
-        purchaseForm.fillPurchaseForm("sarahMohamed", "Egypt", "Mansoura", "card", "10", "2024");
+        purchaseForm.fillPurchaseForm("dinamagdy", "Egypt", "Mansoura", "card", "10", "2024");
         purchaseForm.clickPurchase();
         String message = purchaseForm.getPurchaseConfirmationMessage();
         purchaseForm.clickOK();
