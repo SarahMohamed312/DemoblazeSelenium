@@ -30,10 +30,4 @@ public class ContactPage {
         this.message.sendKeys(message);
         btn.click();
     }
-   /*driver.findElement(By.id("recipient-email")).sendKeys("sara@gmail.com");
-        driver.findElement(By.id("recipient-name")).sendKeys("sara");
-        driver.findElement(By.id("message-text")).sendKeys("please help me");
-        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();//pop up message "Thanks for message"*/
-
-
 }

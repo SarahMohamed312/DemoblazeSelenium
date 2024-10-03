@@ -23,7 +23,6 @@ public class CartPage{
     private By totalPriceCart = By.id("totalp");
     private WebDriverWait wait;
     private FluentWait fluentWait;
-    //WebElement placeOrderForm = driver.findElement(By.className("modal-content"));
 
     public CartPage(WebDriver driver){
         this.driver = driver;
@@ -51,7 +50,7 @@ public class CartPage{
     }
 
     public String getSumOfProductPrices(){
-        fluentWait.until(ExpectedConditions.visibilityOfElementLocated(productPrice));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(productPrice));
         List<WebElement> listOfPricesOfPlacedOrders = driver.findElements(productPrice);
         int totalPrices = 0;
 
@@ -97,16 +96,5 @@ public class CartPage{
     public String getTotalPriceInCart(){
         fluentWait.until(ExpectedConditions.visibilityOfElementLocated(totalPriceCart));
         return driver.findElement(totalPriceCart).getText();
-
     }
-
-
-    /*
-    public String getTotalPriceInCart(){
-        fluentWait.until(ExpectedConditions.visibilityOfElementLocated(totalPriceCart));
-          String totalPriceText = driver.findElement(totalPriceCart).getText();
-          return Integer.parseInt(totalPriceText);
-    }
-
-     */
 }

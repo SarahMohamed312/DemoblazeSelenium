@@ -4,7 +4,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -14,7 +13,7 @@ public class PurchaseModal {
     private By nameField = By.id("name");
     private By priceTotalForm = By.id("totalm");
     private By purchaseButton = By.xpath("//*[text()='Purchase']");
-    private By closeButton = By.xpath("//*[text()='Close']");
+    private By closeButton = By.xpath("//*[@id='orderModal']/div/div/div[3]/button[1]");
     private By okButton = By.xpath("//*[text()='OK']");
     private By purchaseThanksMessage = By.xpath("//h2[contains(text(),'Thank you')]");
     private WebDriverWait wait;
@@ -30,8 +29,7 @@ public class PurchaseModal {
     }
 
 
-    public void clickField (String id, String text){
-        driver.findElement(By.id(id)).click();
+    public void fillInField (String id, String text){
         wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
         driver.findElement(By.id(id)).sendKeys(text);
     }
@@ -39,12 +37,12 @@ public class PurchaseModal {
     public void fillPurchaseForm(String name, String country, String city, String card, String month, String year) {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
-        clickField("name",name);
-        clickField("country",country);
-        clickField("city",city);
-        clickField("card",card);
-        clickField("month",month);
-        clickField("year",year);
+        fillInField("name",name);
+        fillInField("country",country);
+        fillInField("city",city);
+        fillInField("card",card);
+        fillInField("month",month);
+        fillInField("year",year);
     }
 
     public void clickPurchase()  {
@@ -71,7 +69,7 @@ public class PurchaseModal {
         }
 
     public void closeModal() {
-        wait.until(ExpectedConditions.elementToBeClickable(closeButton)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(closeButton)).click();
     }
 
     public String getPurchaseConfirmationMessage() {

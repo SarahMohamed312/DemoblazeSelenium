@@ -1,7 +1,6 @@
 package e2e;
 
 import base.BaseTest;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,68 +16,57 @@ import static org.testng.Assert.assertEquals;
 
 public class E2E extends BaseTest {
 
+
     @Test
     public void BeAbleToSignUpWithNewUsernameAndPassword() {
-       /* driver.findElement(By.id("signin2")).click();
+        driver.findElement(By.id("signin2")).click();
         SignupPage signupPage = new SignupPage(driver);
-        signupPage.signup("naakkluser175", "322054"); // New username
+        signupPage.signup("newitiuser102024", "123456789"); // New username
         String expectedMessage = "Sign up successful.";
         String actualMessage = handleAlert();
         Assert.assertEquals(actualMessage, expectedMessage, "Expected alert message was not displayed.");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login2")));
-        */driver.findElement(By.id("login2")).click();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginToDemoblaze("naakkluser175", "322054");
+        }
 
+    @Test(priority = 1)
+    protected void ShouldBeAbleToLoginWithCorrectUsernameAndPassword() {
+        driver.findElement(By.id("login2")).click();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.loginToDemoblaze("newitiuser102024", "123456789");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement navbarElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nameofuser")));
+        Assert.assertTrue(navbarElement.getText().contains("Welcome"));
+    }
+    @Test(priority = 2)
+    public void AddProductstoCart() {
+        //add the first product
         var product1Page = homePage.clickSamsungGalaxyS6Product();
         product1Page.clickAddToCart();
         product1Page.alert_clickToAccept();
         product1Page.clickHome();
+
+        //add the second product
         var product2Page = homePage.clickSonyVaioi5();
         product2Page.clickAddToCart();
         product2Page.alert_clickToAccept();
-        var cartPage = product2Page.clickCart();
+    }
+
+    @Test(priority = 3)
+    public void testValidData_PlaceOrderModal() {
+        var cartPage = homePage.clickCart();
+        //Check the sum of products prices
+        String SumOfProductPrices = cartPage.getSumOfProductPrices();
+        String TotalPriceInCart = cartPage.getTotalPriceInCart();
+        assertEquals(SumOfProductPrices, TotalPriceInCart, "Incorrect Total Price In Cart");
+
+        //Fill in Purchase Modal
         var purchaseForm = cartPage.clickPlaceOrder();
-        purchaseForm.fillPurchaseForm(
-                "naakkluser175",
-                "Egypt",
-                "Mansoura",
-                "card",
-                "10",
-                "2024");
+        purchaseForm.fillPurchaseForm("sarahMohamed", "Egypt", "Mansoura", "card", "10", "2024");
         purchaseForm.clickPurchase();
         String message = purchaseForm.getPurchaseConfirmationMessage();
         purchaseForm.clickOK();
         assertEquals(message, "Thank you for your purchase!","Incorrect Purchase Message");
-
-
-    }
-
-  /*  @Test
-    protected void LoginWithEmptyUsernameAndEmptyPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login2")));
-        driver.findElement(By.id("login2")).click();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginToDemoblaze("nilkgusers805", "322054");
-        Alert alert = driver.switchTo().alert();
-        String alertMessage = alert.getText();
-        Assert.assertEquals("Please fill out Username and Password.", alertMessage);
-
-    }
-*/
-
-
-
-
-    protected String handleAlert() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.alertIsPresent());
-
-        Alert alert = driver.switchTo().alert();
-        String alertMessage = alert.getText();
-        alert.accept();
-        return alertMessage;
+        purchaseForm.closeModal();
     }
 }

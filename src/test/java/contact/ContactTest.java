@@ -18,23 +18,13 @@ public class ContactTest extends BaseTest {
 
     @Test
     public void contactAndSendMessage() {
-        //WebDriver driver;
-        /*WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-        driver.manage().window().maximize();
-        driver.get("https://www.demoblaze.com/");*/
         driver.findElement(By.cssSelector("a.nav-link[data-target='#exampleModal']")).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal-header"))); // Replace with your modal's CSS selector
 
         ContactPage contactPage = new ContactPage(driver);
         contactPage.contactinfo("sara@gmail.com","sara","please help me");
-        wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert = driver.switchTo().alert();
-        String actualmessage = alert.getText();
-        alert.accept();
+        String actualmessage = handleAlert();
         Assert.assertEquals(actualmessage ,"Thanks for the message!!", "Expected alert message was not displayed.");
     }
 }

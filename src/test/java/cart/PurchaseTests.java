@@ -9,18 +9,17 @@ import static org.testng.Assert.*;
 
 public class PurchaseTests extends BaseTest {
 
-
-    /*@Test(dataProvider = "FillFormData", dataProviderClass = DataProvider.class)
+    @Test(dataProvider = "FillFormData", dataProviderClass = DataProvider.class)
     public void testValidData_PlaceOrderModal(String name, String country, String city, String card, String month, String year) {
         var cartPage = homePage.clickCart();
         var purchaseForm = cartPage.clickPlaceOrder();
-      purchaseForm.fillPurchaseForm(name, country, city, card, month, year);
+        purchaseForm.fillPurchaseForm(name, country, city, card, month, year);
         purchaseForm.clickPurchase();
+        String message = purchaseForm.getPurchaseConfirmationMessage();
         purchaseForm.clickOK();
-        purchaseForm.alert_AcceptAlert();
+        assertEquals(message, "Thank you for your purchase!","Incorrect Purchase Message");
     }
 
-     */
 
     @Test
     public void testEmptyFields_PlaceOrderModal( ) {
@@ -53,18 +52,4 @@ public class PurchaseTests extends BaseTest {
         System.out.println(TotalPriceInCart);
         assertEquals(TotalPriceInForm, "Total: "+TotalPriceInCart, "Incorrect Total Price In Form");
     }
-
-    @Test(dataProvider = "FillFormData", dataProviderClass = DataProvider.class)
-    public void testValidData_PlaceOrderModal(String name, String country, String city, String card, String month, String year) {
-        var cartPage = homePage.clickCart();
-        var purchaseForm = cartPage.clickPlaceOrder();
-        purchaseForm.fillPurchaseForm(name, country, city, card, month, year);
-        purchaseForm.clickPurchase();
-        String message = purchaseForm.getPurchaseConfirmationMessage();
-        purchaseForm.clickOK();
-        assertEquals(message, "Thank you for your purchase!","Incorrect Purchase Message");
-    }
-
-    //(dataProvider = "FillFormData", dataProviderClass = DataProvider.class)
-    //String name, String country, String city, String card, String month, String year
 }

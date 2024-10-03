@@ -2,7 +2,6 @@ package cart;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -67,7 +66,7 @@ public class CartTests extends BaseTest {
         assertEquals(SumOfProductPrices, TotalPriceInCart, "Incorrect Total Price In Cart");
     }
 
-    /*
+
     @Test
     public void testDeleteAllItemsFromCart(){
 
@@ -81,7 +80,6 @@ public class CartTests extends BaseTest {
         var cartPage = product2Page.clickCart();
         cartPage.deleteAllItemsInCart();
     }
-     */
 
 
 }
